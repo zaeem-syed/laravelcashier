@@ -23,13 +23,14 @@ class SubscriptionController extends Controller
     {
         $user=auth()->user();
         $intent=$user->createSetupIntent();
+        //dd($intent);
         return view('subscription.index',compact('intent'));
     }
 
     public function subscription(Request $request)
     {
-        $data=$request->all();
-        return $data;
+        return $request->all();
+        //return $data;
     }
 }
 
