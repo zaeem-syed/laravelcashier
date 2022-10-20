@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlansController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriptionController;
 
@@ -28,6 +29,12 @@ route::middleware('auth')->group(function(){
 route::get('subscribe',[SubscriptionController::class,'index']);
 route::post('/sub',[SubscriptionController::class,'subscription']);
 
+
+Route::get('/create/plan',[SubscriptionController::class,'showplan']);
+
+Route::post('/plan',[SubscriptionController::class,'makeplan']);
+
+route::get('/get/plans',[SubscriptionController::class,'allplans']);
 
 // Route::get('/subscribe', 'SubscriptionController@showSubscription');
 //       Route::post('/subscribe', 'SubscriptionController@processSubscription');
