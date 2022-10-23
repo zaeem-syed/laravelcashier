@@ -35,6 +35,12 @@ Route::get('/create/plan',[SubscriptionController::class,'showplan']);
 Route::post('/plan',[SubscriptionController::class,'makeplan']);
 
 route::get('/get/plans',[SubscriptionController::class,'allplans']);
+route::get('/plan/checkout/{planid}',[SubscriptionController::class,'plancheckout']);
+route::post('/plan/checkout',[SubscriptionController::class,'checkout']);
+route::get('/subscription',[SubscriptionController::class,'userSubscription']);
+
+route::get('/cancel',[SubscriptionController::class,'cancelSubscription']);
+route::get('/resume',[SubscriptionController::class,'resumeSubscription']);
 
 // Route::get('/subscribe', 'SubscriptionController@showSubscription');
 //       Route::post('/subscribe', 'SubscriptionController@processSubscription');

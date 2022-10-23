@@ -22,6 +22,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
+                        @if (session()->has('errors'))
+                        <div class="row">
+                         <div class="col-md-8">
+                        <div class="alert alert-danger">
+                         <ul>
+                    {{-- @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach --}}
+                    {{session('errors')}}
+                        </ul>
+                        </div>
+
+                        </div>
+                        </div>
+
+                        @endif
                         <div class="pricing-header">
                             <h1>The Best Pricing<br>for Everyone.</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi porta lorem mollis erat imperdiet sed euismod nisi. Tellus rutrum tellus...</p>
@@ -34,12 +50,15 @@
            <div class="gradient"></div>
             <div class="container">
                 <div class="row flex-items-xs-middle flex-items-xs-center nogap">
+
                     <!-- Table #1  -->
                     <div class="col-lg-6 col-12 col">
                         <div class="card">
                            <h3 style="background-color: #f69679;">Basic</h3>
+                           {{-- @foreach($summer as $plan1) --}}
+
                             <div class="card-header">
-                                <h4><span class="currency">19.00</span></h4>
+                                <h4><span class="currency">{{$summer->price}}</span> <span>{{$summer->currency}}</span></h4>
                                 <p class="card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
                             </div>
                             <div class="card-block">
@@ -52,7 +71,8 @@
                                     <li class="list-group-item"><i class="fa fa-check-circle" aria-hidden="true"></i>Custom charts</li>
                                 </ul>
                             </div>
-                            <button type="button" class="btn btn-info">Subscribe Now</button>
+                            <a type="button" href="{{url('/plan/checkout',$summer->plan_id)}}" class="btn btn-info">{{$summer->name}}</a>
+                            {{-- @endforeach --}}
                         </div>
                     </div>
                     <!-- Table #2  -->
