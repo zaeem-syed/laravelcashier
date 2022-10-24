@@ -187,5 +187,19 @@ class SubscriptionController extends Controller
             return "subscription has some error while resuming";
         }
     }
+
+
+    public function newpayment()
+    {
+        $user=auth()->user();
+        $intent=$user->createSetupIntent();
+        //dd($intent);
+        return view('subscription.newpayment',compact('intent'));
+    }
+
+    public function pay(Request $request)
+    {
+        dd($request->all());
+    }
 }
 

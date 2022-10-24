@@ -42,6 +42,10 @@ route::get('/subscription',[SubscriptionController::class,'userSubscription']);
 route::get('/cancel',[SubscriptionController::class,'cancelSubscription']);
 route::get('/resume',[SubscriptionController::class,'resumeSubscription']);
 
+
+
+route::get('/new',[SubscriptionController::class,'newpayment']);
+route::post('/pay',[SubscriptionController::class,'pay']);
 // Route::get('/subscribe', 'SubscriptionController@showSubscription');
 //       Route::post('/subscribe', 'SubscriptionController@processSubscription');
 //       // welcome page only for subscribed users
