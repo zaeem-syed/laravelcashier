@@ -53,3 +53,12 @@ route::post('/pay',[SubscriptionController::class,'pay']);
       //->middleware('subscribed');
 
 });
+
+
+Route::get('/text',function(){
+    return view('text');
+});
+
+Route::get('/nadia',function(){
+    return view('nadia');
+});
